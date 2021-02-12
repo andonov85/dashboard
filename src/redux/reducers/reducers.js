@@ -8,7 +8,7 @@ const initState = {
       requestParams: {
         client_id: '',
         client_secret: '',
-        grant_type: 'client_credentials'
+        grant_type: ''
       },
     },
     access_token: null,
