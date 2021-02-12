@@ -1,0 +1,1 @@
+export const getIGDB = store => store.igdb;
