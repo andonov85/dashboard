@@ -7,8 +7,6 @@ const config = {
     access_token: null
 };
 
-init();
-
 async function init() {
     config.access_token = getLocalStorageToken() || await refreshLocalStorageToken();
 }
@@ -47,8 +45,9 @@ function makeAuth (url) {
 }
 
 const igdb = {
-    v4: (url, fields) => {
-        if (!config.access_token) return null;
+    v4: async (url, fields) => {
+        await init();
+        if (!config.access_token) throw new Error('Missing access token.');
 
         return axios.request({
             method: 'post',
