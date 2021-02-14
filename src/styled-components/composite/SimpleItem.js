@@ -10,7 +10,7 @@ const Icon = styled.span`
 
 const Item = ({ title, text, icon, iconColor }) => {
     return (
-        <FlexContainer height="100%" justifyContent="center">
+        <FlexContainer height="100%" justifyContent="center" alignItems="center">
             <div>
                 <Icon color={iconColor}>{icon}</Icon>
             </div>

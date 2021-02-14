@@ -3,8 +3,9 @@ import styled from 'styled-components';
 const FlexContainer = styled.div`
     display: flex;
     justify-content: ${props => props.justifyContent || "left"};
-    align-items: ${props => props.height || "flex-start"};
+    align-items: ${props => props.alignItems || "flex-start"};
     flex-direction: ${props => props.direction || "row"};
+    height: ${props => props.height || "auto"};
 `;
 
 const OuterBox = styled.section`

@@ -11,7 +11,7 @@ import Notifications from './Notifications';
 import BestSeller from './BestSeller';
 
 import SimpleItem from '../styled-components/composite/SimpleItem';
-import { Box } from '../styled-components/Layout';
+import { Box, Header, Body } from '../styled-components/Layout';
 import { Title } from '../styled-components/Typography';
 
 const ReactGridLayout = WidthProvider(RGL);
@@ -65,14 +65,22 @@ function Dashboard() {
                 </div>
                 <div key="d">
                     <Box>
-                        <Title>Sales by Month</Title>
-                        <SimpleLineChart />
+                        <Header>
+                            <Title>Sales by Month</Title>
+                        </Header>
+                        <Body>
+                            <SimpleLineChart />
+                        </Body>
                     </Box>
                 </div>
                 <div key="e">
                     <Box>
-                        <Title>Product Impressions</Title>
-                        <StackedBarChart />
+                        <Header>
+                            <Title>Product Impressions</Title>
+                        </Header>
+                        <Body>
+                            <StackedBarChart />
+                        </Body>
                     </Box>
                 </div>
                 <div key="f">
