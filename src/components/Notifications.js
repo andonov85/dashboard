@@ -18,13 +18,12 @@ function Notifications() {
     const { items, totalItems, addNextItems, filterItems, pending, error } = useFetchGameData();
     const [name, setName] = useState();
 
-    const debounceName = debounce(name => {
-        filterItems(name);
-    }, 1000);
+    const handleInput = (value) => {
+        filterItems(value);
+    }
 
-    const handleInput = (e) => {
+    const handleKeyUp = (e) => {
         setName(e.target.value);
-        debounceName(e.target.value);
     }
 
     return (
@@ -37,7 +36,7 @@ function Notifications() {
                     </span>
                 </Title>
                 <Par>
-                    <input type="text" onInput={handleInput} />
+                    <input type="text" onInput={debounce(e => handleInput(e.target.value), 1000)} onKeyUp={handleKeyUp} />
                     <Text bold color="violet" style={{marginLeft: '15px'}}>{ name }</Text>
                 </Par>
                 { error && <Par color="red">{ error }</Par> }
