@@ -24,7 +24,7 @@ function useFetchGameData() {
         setOffset(offset + limit);
     }
 
-    const searchItems = (name) => {
+    const filterItems = (name) => {
         setName(name);
         setOffset(0);
     }
@@ -49,10 +49,13 @@ function useFetchGameData() {
                     offset ${offset};
                 };
             `)
-            .catch(err => setError(err));
+            .catch(err => {
+                setError(err.toString());
+            });
 
-            if (!ignore) {
-                setPending(false);
+            setError(null);
+            setPending(false);
+            if (!ignore && response) {
                 if (offset === 0) {
                     setItems(composeItems(response.data[1].result));
                 } else {
@@ -67,7 +70,7 @@ function useFetchGameData() {
         return () => { ignore = true }
     }, [offset, name]);
 
-    return { items, totalItems, addNextItems, searchItems, pending, error };
+    return { items, totalItems, addNextItems, filterItems, pending, error };
 }
 
 export { useFetchGameData };

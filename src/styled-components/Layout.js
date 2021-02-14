@@ -3,28 +3,33 @@ import styled from 'styled-components';
 const FlexContainer = styled.div`
     display: flex;
     justify-content: ${props => props.justifyContent || "left"};
-    align-items: center;
-    height: ${props => props.height || "initial"};
+    align-items: ${props => props.height || "flex-start"};
+    flex-direction: ${props => props.direction || "row"};
 `;
 
 const OuterBox = styled.section`
-    overflow: auto;
     display: inline-block;
     background-color: white;
     border-radius: 16px;
-    // box-shadow: 0px 0px 16px -7px rgba(0,0,0,0.35);
-    height: ${props => props.height || "100%"};
+    height: 100%;
     width: ${props => props.width || "100%"};
 `;
 
 const InnerBox = styled.div`    
     position: absolute;
-    padding: ${props => props.padding || "1rem 1.5rem"};
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: auto;
+    padding: ${props => props.padding || "1rem"};
+    inset: 0 0 0 0;
+    display: flex;
+    flex-direction: column;
+`;
+
+const Header = styled.div`
+    width: 100%;
+    flex-grow: 0;
+`;
+const Body = styled.div`
+    width: 100%;
+    flex-grow: 1;
 `;
 
 function Box({ children, padding }) {
@@ -35,4 +40,4 @@ function Box({ children, padding }) {
     );
 }
 
-export { Box, FlexContainer };
+export { Box, Header, Body, FlexContainer };

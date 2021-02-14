@@ -16,11 +16,11 @@ import { Title } from '../styled-components/Typography';
 
 const ReactGridLayout = WidthProvider(RGL);
 const layout = [
-    // { i: 'a', x: 5, y: 0, w: 4, h: 3 },
-    // { i: 'b', x: 9, y: 0, w: 4, h: 3 },
-    // { i: 'c', x: 13, y: 0, w: 4, h: 3 },
-    // { i: 'd', x: 5, y: 4, w: 12, h: 9 },
-    // { i: 'e', x: 5, y: 8, w: 12, h: 9 },
+    { i: 'a', x: 5, y: 0, w: 4, h: 3 },
+    { i: 'b', x: 9, y: 0, w: 4, h: 3 },
+    { i: 'c', x: 13, y: 0, w: 4, h: 3 },
+    { i: 'd', x: 5, y: 4, w: 12, h: 9 },
+    { i: 'e', x: 5, y: 8, w: 12, h: 9 },
     { i: 'f', x: 17, y: 4, w: 8, h: 18 },
     { i: 'g', x: 25, y: 4, w: 6, h: 10 }
 ];
@@ -33,7 +33,7 @@ function Dashboard() {
                 layout={layout}
                 cols={36} rowHeight={30} width={1200}
             >
-                {/* <div key="a">
+                <div key="a">
                     <Box padding="0">
                         <SimpleItem
                             title="Total Stocks"
@@ -65,7 +65,7 @@ function Dashboard() {
                 </div>
                 <div key="d">
                     <Box>
-                        <div><Title>Sales by Month</Title></div>
+                        <Title>Sales by Month</Title>
                         <SimpleLineChart />
                     </Box>
                 </div>
@@ -74,7 +74,7 @@ function Dashboard() {
                         <Title>Product Impressions</Title>
                         <StackedBarChart />
                     </Box>
-                </div> */}
+                </div>
                 <div key="f">
                     <Notifications />
                 </div>
